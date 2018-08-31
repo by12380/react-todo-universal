@@ -22,7 +22,7 @@ class TodoItem extends Component {
             this.props.token, 
             {
                 _id: this.props.id,
-                title: this.input.value
+                title: this.input.value.trim()
             }
         )
 
