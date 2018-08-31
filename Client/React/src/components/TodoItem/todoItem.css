@@ -75,3 +75,15 @@
     transform: translate(0%, -50%);
     cursor: pointer;
 }
+
+.check-icon {
+    font-size: 20px;
+    position: relative;
+    top: 5px;
+    left: 5px;
+    color: green;
+}
+
+.delete-icon {
+    color: red;
+}
