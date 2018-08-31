@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #f4f9fc;
+  height: 100%;
 }
 
 .App-logo {
@@ -33,7 +35,7 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #f3f3f3;
+  background-color: rgb(217, 234, 249, 0.2);
   box-shadow: 0 1px 10px 0 #a8a8a8;
 }
 

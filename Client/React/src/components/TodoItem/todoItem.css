@@ -5,7 +5,9 @@
     width: 500px;
     text-align: left;
     position: relative;
-    box-shadow: 0 1px 5px 0 #c9c9c9;
+    box-shadow: 0 2px 8px 0 #c9c9c9;
+    background-color: white;
+    font-weight: 300;
 }
 
 .completed-check-box {
@@ -85,5 +87,5 @@
 }
 
 .delete-icon {
-    color: red;
+    color: #c43c3c;
 }

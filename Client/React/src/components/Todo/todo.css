@@ -1,10 +1,19 @@
+.site-header {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+    font-size: 100px;
+    margin: 0 0 20px 0;
+    color: #6db3bf;
+}
+
 .input-title {
     padding: 15px 25px 15px 25px;
     width: 400px;
     font-size: 20px;
+    font-weight: 300;
     color: #707070;
     border: 0;
-    box-shadow: 0 0 5px 0 #adadad;
+    box-shadow: 0 2px 8px 0 #d8d8d8;
     outline: none;
 }
 
