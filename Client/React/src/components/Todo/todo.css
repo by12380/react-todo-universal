@@ -8,16 +8,6 @@
     outline: none;
 }
 
-.submit-container {
-    padding: 20px;
-}
-
-.submit-btn {
-    border: 0;
-    border-radius: 5px;
-    color: white;
-    background-color: darkblue;
-    font-size: 14px;
-    padding: 10px 15px 10px 15px;
-    cursor: pointer;
+.todo-container {
+    margin-top: 50px;;
 }
