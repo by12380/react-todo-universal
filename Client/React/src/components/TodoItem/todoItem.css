@@ -1,0 +1,77 @@
+.item-container {
+    margin: 5px;
+    padding: 10px 0px 10px 0px;
+    display: inline-block;
+    width: 500px;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 1px 5px 0 #c9c9c9;
+}
+
+.completed-check-box {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: solid 1px #c9c9c9;
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.title-container {
+    padding: 0px 20px 0px 20px;
+    display: inline-block;
+    font-size: 20px;
+    vertical-align: top;
+    height: 30px;
+    position: relative;
+    vertical-align: middle;
+}
+
+.title {
+    margin: 0;
+    width: 300px;
+    color: #606060;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title-crossed {
+    margin: 0;
+    width: 300px;
+    color: #606060;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-decoration: line-through;
+    font-style: italic;
+}
+
+.edit-title {
+    margin-left: -5px;
+    border: 0;
+    height: 50px;
+    width: 300px;
+    padding-left: 8px;
+    color: #606060;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    outline-color: gray;
+    font-size: 20px;
+    display: block;
+}
+
+.delete-btn {
+    display: inline-block;
+    padding: 0px 30px 0px 10px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0%, -50%);
+    cursor: pointer;
+}
