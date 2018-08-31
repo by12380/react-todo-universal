@@ -23,3 +23,36 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.navbar {
+  margin-bottom: 50px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f3f3f3;
+  box-shadow: 0 1px 10px 0 #a8a8a8;
+}
+
+.navbar li {
+  float: left;
+}
+
+.navbar li a {
+  display: block;
+  color: #a8a8a8;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar li a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.navbar li a.active {
+  color: #4c4c4c
+}
