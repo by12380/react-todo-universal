@@ -1,0 +1,23 @@
+.input-title {
+    padding: 15px 25px 15px 25px;
+    width: 400px;
+    font-size: 20px;
+    color: #707070;
+    border: 0;
+    box-shadow: 0 0 5px 0 #adadad;
+    outline: none;
+}
+
+.submit-container {
+    padding: 20px;
+}
+
+.submit-btn {
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    background-color: darkblue;
+    font-size: 14px;
+    padding: 10px 15px 10px 15px;
+    cursor: pointer;
+}
