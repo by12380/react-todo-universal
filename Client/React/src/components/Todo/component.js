@@ -3,15 +3,18 @@ import './todo.css';
 
 import TodoItem from '../TodoItem';
 
+const ENTER_KEY = 13;
+
 class Todo extends Component {
 
     componentDidMount() {
         this.props.getItems(this.props.token);
     }
 
-    onSubmit = (e) => {
+    handleSubmit = (e) => {
         e.preventDefault();
-        this.props.addItem(this.props.token, {title: this.input.value})
+        this.props.addItem(this.props.token, {title: this.input.value});
+        this.input.value = ''
     }
 
     renderTodos = () => {
@@ -27,15 +30,19 @@ class Todo extends Component {
         return (
             <div>
                 <h1>Todo Page</h1>
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={this.handleSubmit}>
                     <div>
-                        <input id="input-title" className="input-title" type="text" autoComplete="off" ref={input => {this.input = input}}/>
-                    </div>
-                    <div className="submit-container">
-                        <button className="submit-btn" type="submit">Submit</button>
+                        <input
+                            id="input-title"
+                            className="input-title"
+                            type="text"
+                            autoComplete="off"
+                            ref={input => {this.input = input}}/>
                     </div>
                 </form>
-                {this.renderTodos()}
+                <div className="todo-container">
+                    {this.renderTodos()}
+                </div>
             </div>
         )
     }
