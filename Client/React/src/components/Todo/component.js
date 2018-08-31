@@ -3,8 +3,6 @@ import './todo.css';
 
 import TodoItem from '../TodoItem';
 
-const ENTER_KEY = 13;
-
 class Todo extends Component {
 
     componentDidMount() {
@@ -13,7 +11,7 @@ class Todo extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.addItem(this.props.token, {title: this.input.value});
+        this.props.addItem(this.props.token, {title: this.input.value.trim()});
         this.input.value = ''
     }
 
