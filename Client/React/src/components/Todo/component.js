@@ -29,7 +29,7 @@ class Todo extends Component {
     render() {
         return (
             <div>
-                <h1>Todo Page</h1>
+                <h1 class="site-header">Todos</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <input
