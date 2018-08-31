@@ -68,7 +68,7 @@ class TodoItem extends Component {
 
     renderCheckIcon = () => {
         return this.props.completed
-            ? <span>v</span>
+            ? <i className="fas fa-check check-icon"></i>
             : null
     }
 
@@ -81,7 +81,9 @@ class TodoItem extends Component {
                 <div className="title-container">
                     {this.renderTitle()}
                 </div>
-                <div className="delete-btn" onClick={this.handleDelete}>x</div>
+                <div className="delete-btn" onClick={this.handleDelete}>
+                    <i className="fas fa-times delete-icon"></i>
+                </div>
             </div>
         )
     }
