@@ -4,6 +4,7 @@
   "version": "0.2.7",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.3.1",
     "auth0-js": "^9.7.3",
     "cross-env": "5.1.6",
     "electron-is-dev": "0.3.0",

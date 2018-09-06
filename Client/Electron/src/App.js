@@ -10,6 +10,7 @@ import { loadSession } from './actions/authActions';
 
 import logo from './logo.svg';
 import './App.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 class App extends Component {
 
