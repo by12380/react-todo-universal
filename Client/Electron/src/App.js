@@ -25,16 +25,16 @@ class App extends Component {
         <div className="App">
           <nav className="navbar">
             <ul>
-              <li><NavLink exact to="/">Todo</NavLink></li>
+              <li><NavLink to="/todo">Todo</NavLink></li>
               <li><NavLink to="/profile">Profile</NavLink></li>
             </ul>
           </nav>
           <main>
             <div>
               <Route exact path="/profile" render={() => this.props.isAuthenticated ? <Profile /> : <Redirect to='/login' />} />
-              <Route exact path="/login" render={() => !this.props.isAuthenticated ? <LogIn /> : <Redirect to='/' />} />
-              <Route exact path="/" render={() => this.props.isAuthenticated ? <Todo /> : <Redirect to='/login' />} />
-              <Route path="/" render={() => <Redirect to='/' />} />
+              <Route exact path="/login" render={() => !this.props.isAuthenticated ? <LogIn /> : <Redirect to='/todo' />} />
+              <Route exact path="/todo" render={() => this.props.isAuthenticated ? <Todo /> : <Redirect to='/login' />} />
+              <Route path="/" render={() => <Redirect exact to='/todo' />} />
             </div>
           </main>
         </div>
