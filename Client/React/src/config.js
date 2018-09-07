@@ -6,3 +6,7 @@ export const AUTH0_LOGOUT_REDIRECT_URL = process.env.REACT_APP_AUTH0_LOGOUT_REDI
 
 //App server
 export const APP_SERVER_URL = process.env.REACT_APP_APP_SERVER_URL || 'http://localhost:8080';
+
+//Asset links
+export const ELECTRON_APP_MAC_DOWNLOAD_URL = 'https://www.dropbox.com/s/uamywmwrnjctmsg/react-todo-universal-0.2.7.dmg?raw=1'
+export const ELECTRON_APP_WIN_DOWNLOAD_URL = 'https://www.dropbox.com/s/zwzuevd69vgityj/react-todo-universal%20Setup%200.2.7.exe?raw=1'

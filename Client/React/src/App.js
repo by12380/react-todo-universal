@@ -8,6 +8,9 @@ import LogIn from './components/LogIn';
 import Callback from './components/Callback';
 import Todo from './components/Todo';
 import { loadSession } from './actions/authActions';
+import {
+    ELECTRON_APP_MAC_DOWNLOAD_URL,
+    ELECTRON_APP_WIN_DOWNLOAD_URL } from './config';
 
 import logo from './logo.svg';
 import './App.css';
@@ -29,6 +32,20 @@ class App extends Component {
             <ul>
               <li><NavLink exact to="/">Todo</NavLink></li>
               <li><NavLink to="/profile">Profile</NavLink></li>
+              <div className="btn-group-right">
+                <a href={ELECTRON_APP_MAC_DOWNLOAD_URL}>
+                  <button class="download-btn mac-download">
+                    <i className="fas fa-download"></i>
+                    Mac
+                  </button>
+                </a>
+                <a href={ELECTRON_APP_WIN_DOWNLOAD_URL}>
+                  <button class="download-btn win-download">
+                    <i className="fas fa-download"></i>
+                    Windows
+                  </button>
+                </a>
+              </div>
             </ul>
           </nav>
           <main>
