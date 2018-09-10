@@ -8,6 +8,9 @@ import LogIn from './components/LogIn';
 import Callback from './components/Callback';
 import Todo from './components/Todo';
 import { loadSession } from './actions/authActions';
+import {
+  ELECTRON_APP_MAC_DOWNLOAD_URL,
+  ELECTRON_APP_WIN_DOWNLOAD_URL } from './config';
 
 import logo from './logo.svg';
 import './App.css';
