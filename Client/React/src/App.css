@@ -1,7 +1,9 @@
 .App {
   text-align: center;
   background-color: #f4f9fc;
-  height: 100%;
+  min-height: 100vh;
+  padding-bottom: 60px;
+  box-sizing: border-box;
 }
 
 .App-logo {
@@ -88,4 +90,41 @@
 .win-download {
   color: white;
   background-color: rgb(155, 68, 109);
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 40px;;
+  width: 100%;
+  background-color: rgb(21, 51, 99, 0.7);
+  color: white;
+  text-align: center;
+  box-shadow: 0 -1px 5px 0 grey;
+  font-size: 15px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.footer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.footer li {
+  float: left;
+}
+
+.footer li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: white;
+}
+
+.footer .fab.fa-github {
+  margin-right: 5px;
 }

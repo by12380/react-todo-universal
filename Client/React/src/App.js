@@ -56,6 +56,18 @@ class App extends Component {
               <Route exact path="/callback" component={Callback} />
             </div>
           </main>
+          <div className="footer">
+            <ul>
+              <li>
+                <a href="https://github.com/by12380" target="_blank">Built by @by12380</a></li>
+              <li>
+                <a href="https://github.com/by12380/react-todo-universal" target="_blank">
+                  <i class="fab fa-github"></i>
+                  Source code
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </Router>
     );
