@@ -1,9 +1,18 @@
 .login-btn {
-    border: 0;
-    border-radius: 5px;
-    color: white;
-    background-color: darkblue;
+    border: 1px solid darkblue;
+    border-radius: 3px;
+    color: darkblue;
+    background-color: transparent;
     font-size: 14px;
-    padding: 10px 15px 10px 15px;
+    padding: 10px 30px 10px 30px;
     cursor: pointer;
+    margin-top: 50px;
+    -webkit-transition: all 1s;
+    transition: all 0.2s;
+}
+
+.login-btn:hover {
+    border-color: cornflowerblue;
+    background-color: cornflowerblue;
+    color: white;
 }

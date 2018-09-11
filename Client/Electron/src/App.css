@@ -1,7 +1,9 @@
 .App {
   text-align: center;
   background-color: #f4f9fc;
-  height: 100%;
+  min-height: 100vh;
+  padding-bottom: 60px;
+  box-sizing: border-box;
 }
 
 .App-logo {
@@ -26,6 +28,7 @@
 
 .navbar {
   margin-bottom: 50px;
+  position: relative;
 }
 
 .navbar ul {
@@ -55,4 +58,41 @@
 
 .navbar li a.active {
   color: #4c4c4c
+}
+
+.btn-group-right {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+
+.download-btn {
+  border: 0;
+  border-radius: 3px;
+  margin: 10px;
+  font-size: 14px;
+  padding: 8px 15px 8px 15px;
+  box-shadow: 1px 1px 5px 0 #878787;
+  cursor: pointer;
+  min-width: 100px;
+  transition: all 0.2s;
+}
+
+.download-btn:hover {
+  box-shadow: 1px 1px 10px 0 #707070;
+}
+
+.fas.fa-download {
+  padding-right: 10px
+}
+
+.mac-download {
+  color: white;
+  background-color: rgb(173, 62, 62);
+}
+
+.win-download {
+  color: white;
+  background-color: rgb(155, 68, 109);
 }

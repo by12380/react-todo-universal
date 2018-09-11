@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { REACT_UNIVERSAL_REPO_URL } from '../../config';
 import './todo.css';
 
 import TodoItem from '../TodoItem';
@@ -28,6 +29,9 @@ class Todo extends Component {
         return (
             <div>
                 <h1 class="site-header">Todos</h1>
+                <p className="app-description">
+                    Universal, cross platform todos app built from <a href={REACT_UNIVERSAL_REPO_URL} target="_blank">React Universal</a> starter kit
+                </p>
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <input
