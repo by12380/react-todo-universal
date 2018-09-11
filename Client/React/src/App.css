@@ -76,6 +76,11 @@
   box-shadow: 1px 1px 5px 0 #878787;
   cursor: pointer;
   min-width: 100px;
+  transition: all 0.2s;
+}
+
+.download-btn:hover {
+  box-shadow: 1px 1px 10px 0 #707070;
 }
 
 .fas.fa-download {
