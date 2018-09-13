@@ -10,8 +10,7 @@ import {
 } from 'react-native';
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
-import { logout, switchAccount } from '../actions/authActions';
-import { fetchUser } from '../actions/userActions';
+import { logout, switchAccount, fetchUser } from '../actions/auth0';
 
 import { MonoText } from '../components/StyledText';
 
@@ -21,15 +20,13 @@ class HomeScreen extends React.Component {
     header: null,
   };
 
-  componentDidMount() {
-    this.props.fetchUser(this.props.token);
-  }
-
   componentDidUpdate() {
     this.redirectToLogin();
   }
 
   render() {
+    this.props.fetchUser(this.props.token);
+
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>

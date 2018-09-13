@@ -17,6 +17,12 @@ Electron app (download links):
 [Windows](https://www.dropbox.com/s/o97syfutahencpg/react-universal%20Setup%200.2.7.exe?raw=1)
 [Linux](https://www.dropbox.com/s/zrd413nhrmhibqg/react-universal-0.2.7-x86_64.AppImage?raw=1)
 
+<br />
+<img src="demo.gif" width="1000px"/>
+<br />
+
+#### [Todo app demo](https://react-todo-universal.herokuapp.com/)  
+
 ## Features
 - React (Universal)
 - Redux (Universal)
@@ -24,9 +30,10 @@ Electron app (download links):
 - Expo (Mobile)
 - Express (App Server) (optional)
 - Mongo DB (Database) (optional)
+- Automatic re-login (session storage)
 
 ## Social Login
-- [Auth0](https://auth0.com/) (Default setup) - to demonstrate multiple social login platforms (Google, Facebook, Github, etc...)
+- [Auth0](https://auth0.com/) (Default setup) - to demonstrate multiple social login platforms (Google, Facebook, Github, Twitter, etc...)
 
 ## Getting started
 ```
@@ -48,7 +55,7 @@ cd react-universal
     `http://localhost:3000/callback` (for Web and Electron app)
 
     `https://auth.expo.io/@[Your Expo Account Username]/react-universal` (for Expo app)
-    
+
     In 'Allowed Logout URLs', add
 
     `http://localhost:3000/`
