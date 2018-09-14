@@ -2,6 +2,7 @@ const express = require('express');
 
 const { Todo } = require('../models/todo');
 const { checkJwt } = require('../middlewares/auth');
+const Subscriber = require('../utils/Subscriber');
 
 const router = express.Router();
 
@@ -39,6 +40,7 @@ router.post('/', checkJwt, async function(req, res){
     try {
         const todo_db = await Todo.create(todo);
         res.status(201).json(todo_db);
+        Subscriber.io.to(req.user.sub).emit('subscribe', { type: 'UPDATE_TODOS' });
     }
     catch(e)
     {
@@ -73,6 +75,7 @@ router.put('/:id', checkJwt, async function(req, res){
     try {
         const todo_updated = await todo_db.save();
         res.status(200).json(todo_updated);
+        Subscriber.io.to(req.user.sub).emit('subscribe', { type: 'UPDATE_TODOS' });
     }
     catch(e)
     {
@@ -99,6 +102,7 @@ router.delete('/:id', checkJwt, async function(req, res){
     try {
         await todo_db.remove();
         res.status(200).end();
+        Subscriber.io.to(req.user.sub).emit('subscribe', { type: 'UPDATE_TODOS' });
     }
     catch(e)
     {
