@@ -1,5 +1,6 @@
 import { store } from './index';
 import { connectSuccess } from './actions/socketActions';
+import { getItems } from './actions/todoActions';
 
 
 export const initSubscriber = (socket) => {
@@ -11,8 +12,10 @@ export const initSubscriber = (socket) => {
         switch (subscription.type) {
             //Dispatch actions based on subscription type
 
-            case 'USER_STORED':
-                console.log(subscription.message);
+            case 'UPDATE_TODOS':
+                const token = store.getState().authReducer.sessionItems.accessToken;
+                store.dispatch(getItems(token));
+                break;
         }
     })
 }
