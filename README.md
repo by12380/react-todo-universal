@@ -1,71 +1,160 @@
-# React Universal App with Social Login Starter Kit
+# Todos React Universal
 
-Minimum react-redux boilerplate (MERN) for desktop, mobile, and web app with social login feature.
-
-Inspired by creating universal apps like Slack, Skype, etc.
+A simple todos app demo that showcases the features of using [React Universal](https://github.com/by12380/react-universal) starter kit
 
 ## Demo
-[Web app](https://react-universal-web.herokuapp.com/)
 
-[Expo (mobile)](https://expo.io/appetize-simulator?url=https://expo.io/@by12380/react-universal)
-
-\* Instructions:  
-Click 'Tap to play' -> Open with Chrome -> Click 'Always' -> Scroll down the web page and Click 'Open project using Expo'.
-
-Electron app (download links):  
-[Mac](https://www.dropbox.com/s/2vnwx9dttz083or/react-universal-0.2.7.dmg?raw=1)
-[Windows](https://www.dropbox.com/s/o97syfutahencpg/react-universal%20Setup%200.2.7.exe?raw=1)
-[Linux](https://www.dropbox.com/s/zrd413nhrmhibqg/react-universal-0.2.7-x86_64.AppImage?raw=1)
-
-<br />
-<img src="demo.gif" width="1000px"/>
-<br />
-
-## Sample app using React Universal
-### [Todos app demo](https://react-todo-universal.herokuapp.com/)
+* [Live Demo](https://react-todo-universal.herokuapp.com/)
 
 <br />
 <img src="https://raw.githubusercontent.com/by12380/react-todo-universal/master/todos-demo.gif" width="1000px"/>
 <br />
 
-## Features
-- React (Universal)
-- Redux (Universal)
-- Electron (Desktop)
-- Expo (Mobile)
-- Express (App Server) (optional)
-- Mongo DB (Database) (optional)
-- Automatic re-login (session storage)
-- Sync app across all devices (Socket.io)
+## Documentation
 
-## Social Login
-- [Auth0](https://auth0.com/) (Default setup) - to demonstrate multiple social login platforms (Google, Facebook, Github, Twitter, etc...)
+#### GET /todos
+Returns all todos that belongs to the authenticated user
+##### Authentication Required
+##### Request Header
 
-## Getting started
 ```
-git clone https://github.com/by12380/react-universal.git
-cd react-universal
+{
+    Content-Type: 'application/json',
+    Authorization: 'Bearer [YOUR ACCESS TOKEN]',
+}
 ```
-## General Setup
-- [Auth0](#auth0-setup-for-development)
-- [Web app](./Client/React/)
-- [Electron app](./Client/Electron/)
-- [Expo app](./Client/Expo/)
-- [App server](./Server) (optional)
 
-## Auth0 Setup (for development)
-1. Sign in / Register Auth0 account
-2. Go to 'Application' -> [Your App Name] -> 'Settings'
-3.  In 'Allowed Callback URLs', add
+##### Response Body
 
-    `http://localhost:3000/callback` (for Web and Electron app)
+```
+[{
+    _id: string
+    user_id: String,
+    title: String,
+    completed: Boolean,
+    createDate: Date
+}]
+```
+| Property Name | Description |
+| --- | --- |
+| id | ID of the todo item |
+| user_id | ID of the user   |
+| title | The description for the todo item |
+| completed | The status of whether the todo item has been completed |
+| createDate | The date of which the todo item is created |
+---
 
-    `https://auth.expo.io/@[Your Expo Account Username]/react-universal` (for Expo app)
+#### POST /todos
+Create a todo item
+##### Authentication Required
 
-    In 'Allowed Logout URLs', add
+##### Request Header
 
-    `http://localhost:3000/`
+Same as GET `/todos` request header.
 
-4.  Go to 'APIs' -> 'Create API'
-5.  Set 'Identifier' (ex. https://api.react-universal.com) -> Hit 'Create'
-6.  Go to 'Settings' -> Toggle 'Allow Offline Access' -> 'Save'
+##### Request Body
+```
+{
+    title: String (required)
+}
+```
+
+| Property Name | Description |
+| --- | --- |
+| title | The description for the todo item. (Required)|
+
+##### Response Body
+
+```
+{
+    _id: string
+    user_id: String,
+    title: String,
+    completed: Boolean,
+    createDate: Date
+}
+```
+Desciption: Same as GET `/todos` response body.
+
+---
+
+#### PUT /todos/{id}
+Update a reminder
+##### Authentication Required
+
+##### Route Parameter
+
+| Field | Description |
+| --- | --- |
+| id | The ID of the todo item to be updated (Required)|
+
+##### Request Header
+
+Same as GET `/todos` request header.
+
+##### Request Body
+```
+{
+    title: String,
+    completed: Boolean,
+}
+(All fields are optional)
+```
+| Property Name | Description |
+| --- | --- |
+| title | The description for the todo item. (If included, title cannot be null)|
+| completed | The status of whether the todo item has been completed |
+
+##### Response Body
+
+```
+{
+    _id: string
+    user_id: String,
+    title: String,
+    completed: Boolean,
+    createDate: Date
+}
+```
+Desciption: Same as GET `/todos` response body.
+
+---
+
+#### DELETE /todos/{id}
+Delete a reminder
+##### Authentication Required
+
+##### Route Parameter
+| Field | Description |
+| --- | --- |
+| id | The ID of the todo item to be deleted (Required)|
+
+##### Request Header
+
+Same as GET `/todos` request header.
+
+##### Request Body
+
+None
+
+##### Response Body
+None
+
+Status code 204 if success.
+
+
+
+
+## Built With
+### Front-End (React + Redux)
+
+React-Native + Expo (mobile) / Electron.js (Desktop) / socket.io
+
+### Back-End (Node.js + MongoDb)
+
+Express.js / Socket.io
+
+
+## Powered By
+
+* Auth0 API
