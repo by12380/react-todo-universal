@@ -63,7 +63,7 @@ class App extends Component {
             </ul>
           </nav>
           <main>
-            <div>
+            <div className="container-fluid">
               <Route exact path="/" render={() => this.props.isAuthenticated ? <Todo /> : <Redirect to='/login' />} />
               <Route exact path="/profile" render={() => this.props.isAuthenticated ? <Profile /> : <Redirect to='/login' />} />
               <Route exact path="/login" render={() => !this.props.isAuthenticated ? <LogIn /> : <Redirect to='/' />} />

@@ -1,8 +1,8 @@
 .item-container {
     margin: 5px;
+    width: 90%;
     padding: 10px 0px 10px 0px;
     display: inline-block;
-    width: 500px;
     text-align: left;
     position: relative;
     box-shadow: 0 2px 8px 0 #c9c9c9;
@@ -23,31 +23,28 @@
 .title-container {
     padding: 0px 20px 0px 20px;
     display: inline-block;
+    width: 70%;
     font-size: 20px;
-    vertical-align: top;
-    height: 30px;
     position: relative;
     vertical-align: middle;
 }
 
 .title {
     margin: 0;
-    width: 300px;
     color: #606060;
     position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
 }
 
 .title-crossed {
     margin: 0;
-    width: 300px;
     color: #606060;
     position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
     text-decoration: line-through;
     font-style: italic;
 }
@@ -56,13 +53,12 @@
     margin-left: -5px;
     border: 0;
     height: 50px;
-    width: 300px;
     padding-left: 8px;
     color: #606060;
     position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
     outline-color: gray;
     font-size: 20px;
     font-weight: 300;

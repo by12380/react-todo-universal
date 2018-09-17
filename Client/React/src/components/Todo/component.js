@@ -32,18 +32,24 @@ class Todo extends Component {
                 <p className="app-description">
                     Universal, cross platform todos app built from <a href={REACT_UNIVERSAL_REPO_URL} target="_blank">React Universal</a> starter kit
                 </p>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <input
-                            id="input-title"
-                            className="input-title"
-                            type="text"
-                            autoComplete="off"
-                            ref={input => {this.input = input}}/>
+                <div className="row">
+                    <div className="col-md-3"></div>
+                    <div className="col-md-6">
+                    <form onSubmit={this.handleSubmit}>
+                        <div>
+                            <input
+                                id="input-title"
+                                className="input-title"
+                                type="text"
+                                autoComplete="off"
+                                ref={input => {this.input = input}}/>
+                        </div>
+                    </form>
+                    <div className="todo-container">
+                        {this.renderTodos()}
                     </div>
-                </form>
-                <div className="todo-container">
-                    {this.renderTodos()}
+                    </div>
+                    <div className="col-md-3"></div>
                 </div>
             </div>
         )
