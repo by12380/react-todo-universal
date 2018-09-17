@@ -21,7 +21,12 @@ Electron app (download links):
 <img src="demo.gif" width="1000px"/>
 <br />
 
-#### [Todo app demo](https://react-todo-universal.herokuapp.com/)  
+## Sample app using React Universal
+### [Todos app demo](https://react-todo-universal.herokuapp.com/)
+
+<br />
+<img src="https://raw.githubusercontent.com/by12380/react-todo-universal/master/todos-demo.gif" width="1000px"/>
+<br />
 
 ## Features
 - React (Universal)
@@ -31,6 +36,7 @@ Electron app (download links):
 - Express (App Server) (optional)
 - Mongo DB (Database) (optional)
 - Automatic re-login (session storage)
+- Sync app across all devices (Socket.io)
 
 ## Social Login
 - [Auth0](https://auth0.com/) (Default setup) - to demonstrate multiple social login platforms (Google, Facebook, Github, Twitter, etc...)
