@@ -6,9 +6,11 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import TodosScreen from '../screens/TodosScreen';
+import TodoEditScreen from '../screens/TodoEditScreen';
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+  Home: HomeScreen
 });
 
 HomeStack.navigationOptions = {
@@ -20,6 +22,25 @@ HomeStack.navigationOptions = {
         Platform.OS === 'ios'
           ? `ios-information-circle${focused ? '' : '-outline'}`
           : 'md-information-circle'
+      }
+    />
+  ),
+};
+
+const TodosStack = createStackNavigator({
+  Todos: TodosScreen,
+  Detail: TodoEditScreen,
+});
+
+TodosStack.navigationOptions = {
+  tabBarLabel: 'Todos',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-checkmark-circle${focused ? '' : '-outline'}`
+          : 'md-checkmark-circle'
       }
     />
   ),
@@ -57,4 +78,5 @@ export default createBottomTabNavigator({
   HomeStack,
   LinksStack,
   SettingsStack,
+  TodosStack
 });
