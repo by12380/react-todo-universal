@@ -29,7 +29,7 @@ HomeStack.navigationOptions = {
 
 const TodosStack = createStackNavigator({
   Todos: TodosScreen,
-  Detail: TodoEditScreen,
+  Edit: TodoEditScreen,
 });
 
 TodosStack.navigationOptions = {

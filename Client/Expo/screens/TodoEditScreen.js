@@ -10,7 +10,7 @@ import { connect } from "react-redux";
 import { login, refreshAccessToken } from '../actions/auth0';
 import { updateItem, deleteItem } from '../actions/todoActions';
 
-class TodoDetailScreen extends React.Component {
+class TodoEditScreen extends React.Component {
 
     static navigationOptions = {
         title: 'Edit',
@@ -91,4 +91,4 @@ const mapDispatchToProps = (dispatch) => {
 
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoDetailScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoEditScreen);

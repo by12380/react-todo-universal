@@ -56,7 +56,9 @@ class TodoItem extends React.Component {
                 <View style={styles.titleContainer} >
                     <Text style={styles.title}>{this.props.item.title}</Text>
                 </View>
-                <TouchableOpacity style={styles.arrowContainer} onPress={() => this.props.navigation.navigate('Detail', {item: this.props.item})}>
+                <TouchableOpacity
+                    style={styles.arrowContainer}
+                    onPress={() => this.props.navigation.navigate('Edit', {item: this.props.item})}>
                     <Ionicons name="ios-arrow-dropright" size={28} />
                 </TouchableOpacity>
             </View>
