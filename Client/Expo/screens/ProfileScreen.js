@@ -14,7 +14,7 @@ import { logout, switchAccount, fetchUser } from '../actions/auth0';
 
 import { MonoText } from '../components/StyledText';
 
-class HomeScreen extends React.Component {
+class ProfileScreen extends React.Component {
 
   static navigationOptions = {
     header: null,
@@ -169,4 +169,4 @@ const mapDispatchToProps = (dispatch) => {
 
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen);
