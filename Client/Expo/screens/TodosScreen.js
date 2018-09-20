@@ -1,110 +1,104 @@
 import React from 'react';
 import {
     View,
-    Button,
     StyleSheet,
     FlatList,
-    Text,
     TouchableOpacity,
-    Image
+    TextInput,
+    KeyboardAvoidingView
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
-import { login, refreshAccessToken } from '../actions/auth0';
+import { Ionicons } from '@expo/vector-icons';
+import TodoItem from '../components/TodoItem';
+import { getItems, addItem, updateItem } from '../actions/todoActions';
 
-class LoginScreen extends React.Component {
+class TodosScreen extends React.Component {
+
+    static navigationOptions = {
+        title: 'Todos',
+    };
 
     constructor(props){
         super(props)
 
+        this.state = {
+            input: ''
+        }
     }
 
-    static navigationOptions = {
-        title: 'Links',
-    };
+    componentDidMount() {
+        this.props.getItems(this.props.token)
+    }
 
-    componentDidUpdate() {
-        this.onRefreshTokenError();
-        this.redirectToHome();
+    _keyExtractor(item, index) {
+        return item._id;
+    }
+
+    onAdd = () => {
+        if (this.state.input) {
+            this.props.addItem(this.props.token, {title: this.state.input});
+            this.setState({input: ''});
+        }
     }
 
     renderItem = ({item}) => {
-        return (
-            <View style={{flexDirection: 'row', alignItems: 'center', padding: 16}}>
-                <Ionicons name="md-checkmark-circle" size={30} color="#1b75d6" style={{flex:1/6}} />
-                <View style={{flexDirection: 'row', flex: 5/6}} >
-                    <Text style={{fontSize: 16}}>{item.key}</Text>
-                </View>
-                <TouchableOpacity style={{flexDirection: 'row', flex: 1/6, justifyContent: 'flex-end'}} onPress={() => this.props.navigation.navigate('Detail', {id: item.key})}>
-                <Ionicons name="ios-arrow-dropright" size={28} />
-                </TouchableOpacity>
-            </View>
-        )
+        return <TodoItem item={item} navigation={this.props.navigation}/>
     }
 
-  renderSeparator(sectionID, rowID) {
-    return (
-      <View style={styles.separator}/>
-    )
-  }
+    render() {
+        return (
+        <KeyboardAvoidingView style={{flex: 1}} behavior="padding" keyboardVerticalOffset={64}>
 
-  render() {
-    return (
-      <FlatList
-        style={styles.root}
-        data={[{key: 'Some text here'}, {key: 'b'}]}
-        renderItem={this.renderItem}/>
-    )
-  }
+            <FlatList
+            style={styles.root}
+            data={this.props.items}
+            renderItem={this.renderItem}
+            keyExtractor={this._keyExtractor}/>
+
+            <View style={styles.footer}>
+                <TextInput
+                    style={styles.input}
+                    placeholder={'Type something here...'}
+                    value={this.state.input}
+                    onChangeText={(input) => this.setState({input})} />
+                <TouchableOpacity onPress={this.onAdd} >
+                    <Ionicons name="ios-add-circle-outline" size={30} color="white" style={{marginLeft: 10}}/>
+                </TouchableOpacity>
+            </View>
+
+        </KeyboardAvoidingView>
+        )
+    }
 }
 
 let styles = StyleSheet.create({
-        root: {
+    root: {
         backgroundColor: 'white'
-      },
-      searchContainer: {
-        backgroundColor: 'red',
-        paddingHorizontal: 16,
-        paddingVertical: 10,
-        height: 60,
-        alignItems: 'center'
-      },
-      container: {
+    },
+    footer: {
         flexDirection: 'row',
+        minHeight: 60,
+        padding: 5,
+        paddingLeft: 10,
+        paddingRight: 10,
+        backgroundColor: '#cccccc',
         alignItems: 'center',
-        marginLeft: 0,
-        flex: 1,
-        backgroundColor: 'red',
-        paddingRight: 0
-      },
-      avatar: {
-        marginRight: 16
-      },
-      separator: {
-        flex: 1,
-        height: StyleSheet.hairlineWidth,
-        backgroundColor: 'red'
-      },
-      welcomeImage: {
-        borderRadius: 50,
-        width: 100,
-        height: 100,
-        resizeMode: 'contain',
-        marginTop: 3,
-        marginLeft: -10,
-      },
+        justifyContent: 'space-between'
+    },
+    input: {
+        flex:1,
+        padding: 10,
+        backgroundColor: 'white',
+        borderRadius: 5
+    }
 });
 
 const mapStateToProps = (state) => {
 
     return {
-        isAuthenticated:
-            new Date().getTime() <
-            (state.authReducer.sessionItems ? state.authReducer.sessionItems.expiresAt : null),
-        refreshError: state.authReducer.refreshError,
-        refreshToken: state.authReducer.sessionItems.refreshToken,
-        user: state.userReducer.user,
+        token: state.authReducer.sessionItems.accessToken,
+        items: state.todoReducer.items
     };
 
 };
@@ -112,10 +106,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 
     return bindActionCreators({
-        login,
-        refreshAccessToken
+        getItems,
+        addItem,
+        updateItem
     }, dispatch);
 
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(TodosScreen);

@@ -3,12 +3,12 @@ import {
     View,
     Button,
     StyleSheet,
-    FlatList,
-    Text
+    TextInput
 } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
 import { login, refreshAccessToken } from '../actions/auth0';
+import { updateItem, deleteItem } from '../actions/todoActions';
 
 class TodoDetailScreen extends React.Component {
 
@@ -20,19 +20,38 @@ class TodoDetailScreen extends React.Component {
         super(props);
         let {params} = this.props.navigation.state;
         this.state = {
-            id: params.id
+            input: params.item.title,
+            item: params.item
         }
     }
 
-    componentDidUpdate() {
-        this.onRefreshTokenError();
-        this.redirectToHome();
+    onSave = () => {
+        if (this.state.input) {
+            const item = this.state.item;
+            item.title = this.state.input.trim();
+            this.props.updateItem(this.props.token, item);
+            this.props.navigation.goBack();
+        }
+    }
+
+    onDelete = () => {
+        this.props.deleteItem(this.props.token, this.state.item);
+        this.props.navigation.goBack();
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <Text>{this.state.id}</Text>
+                <TextInput
+                style={{fontSize: 26, margin: 20, padding: 10, backgroundColor: 'white', borderRadius: 5, borderBottomWidth: 1, borderBottomColor: '#cccccc'}}
+                value={this.state.item.title}
+                onChangeText={(input) => this.setState({input})} />
+                <View style={{padding: 20}}>
+                    <Button title="Save" onPress={this.onSave}></Button>
+                </View>
+                <View style={{padding: 10}}>
+                    <Button title="Delete" onPress={this.onDelete}></Button>
+                </View>
             </View>
         );
     }
@@ -55,7 +74,8 @@ const mapStateToProps = (state) => {
             new Date().getTime() <
             (state.authReducer.sessionItems ? state.authReducer.sessionItems.expiresAt : null),
         refreshError: state.authReducer.refreshError,
-        refreshToken: state.authReducer.sessionItems.refreshToken
+        refreshToken: state.authReducer.sessionItems.refreshToken,
+        token: state.authReducer.sessionItems.accessToken
     };
 
 };
@@ -64,7 +84,9 @@ const mapDispatchToProps = (dispatch) => {
 
     return bindActionCreators({
         login,
-        refreshAccessToken
+        refreshAccessToken,
+        updateItem,
+        deleteItem
     }, dispatch);
 
 };
