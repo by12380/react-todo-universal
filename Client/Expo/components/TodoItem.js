@@ -14,15 +14,9 @@ import { updateItem } from '../actions/todoActions';
 
 class TodoItem extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        this.item = props.item;
-    }
-
     onCheckmarkClick = () => {
-        this.item.completed = !this.item.completed;
-        this.props.updateItem(this.props.token, this.item);
+        this.props.item.completed = !this.props.item.completed;
+        this.props.updateItem(this.props.token, this.props.item);
     }
 
     renderCheckmark = (item) => {
@@ -40,7 +34,7 @@ class TodoItem extends React.Component {
         {
             name = 'md-checkmark-circle';
         }
-        else if (Platform.OS !== 'ios' && item.completed)
+        else if (Platform.OS !== 'ios' && !item.completed)
         {
             name = 'md-checkmark-circle-outline';
         }
@@ -57,12 +51,12 @@ class TodoItem extends React.Component {
         return (
             <View style={styles.container}>
                 <TouchableOpacity onPress={this.onCheckmarkClick} style={styles.checkmarkContainer}>
-                    {this.renderCheckmark(this.item)}
+                    {this.renderCheckmark(this.props.item)}
                 </TouchableOpacity>
                 <View style={styles.titleContainer} >
-                    <Text style={styles.title}>{this.item.title}</Text>
+                    <Text style={styles.title}>{this.props.item.title}</Text>
                 </View>
-                <TouchableOpacity style={styles.arrowContainer} onPress={() => this.props.navigation.navigate('Detail', {item: this.item})}>
+                <TouchableOpacity style={styles.arrowContainer} onPress={() => this.props.navigation.navigate('Detail', {item: this.props.item})}>
                     <Ionicons name="ios-arrow-dropright" size={28} />
                 </TouchableOpacity>
             </View>

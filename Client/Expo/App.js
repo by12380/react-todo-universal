@@ -7,13 +7,24 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
 import { loadSession } from './actions/authActions';
+import { joinRoomSuccess } from './actions/socketActions';
+import io from 'socket.io-client';
+import { initSubscriber } from './subscriber-client';
+import { APP_SERVER_URL } from './config';
+
+const socket = io(APP_SERVER_URL);
 
 export default class App extends React.Component {
 
   constructor(props) {
     super(props);
 
+    initSubscriber(socket);
+
     store.dispatch(loadSession());
+    store.subscribe(() => {
+      this.onSocketConnect();
+    })
   }
 
   state = {
@@ -66,6 +77,18 @@ export default class App extends React.Component {
   _handleFinishLoading = () => {
     this.setState({ isLoadingComplete: true });
   };
+
+  onSocketConnect = () => {
+    const state = store.getState();
+    const user_id = state.userReducer.user.sub;
+    const socketConnected = state.socketReducer.connectSuccess;
+    const roomJoined = state.socketReducer.joinRoomSuccess;
+
+    if ( socketConnected && user_id && !roomJoined ) {
+        socket.emit('room', user_id);
+        store.dispatch(joinRoomSuccess());
+    }
+  }
 }
 
 const styles = StyleSheet.create({
@@ -76,7 +99,7 @@ const styles = StyleSheet.create({
 });
 
 //create the redux store
-const store = createStore(
+export const store = createStore(
   reducers,
   applyMiddleware(thunk)
 );
