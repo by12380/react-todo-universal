@@ -59,7 +59,7 @@ class TodosScreen extends React.Component {
             <View style={styles.footer}>
                 <TextInput
                     style={styles.input}
-                    placeholder={'Type something here...'}
+                    placeholder={'Add a todo...'}
                     value={this.state.input}
                     onChangeText={(input) => this.setState({input})} />
                 <TouchableOpacity onPress={this.onAdd} >
