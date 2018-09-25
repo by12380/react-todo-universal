@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "React Universal",
-    "description": "Minimum react-redux starter kit (MERN) for desktop, mobile, and web app with social login feature.",
-    "slug": "react-universal",
+    "name": "React Todos Universal",
+    "description": "Simple todos demo for React Universal starter kit",
+    "slug": "react-todos-universal",
     "privacy": "public",
     "sdkVersion": "29.0.0",
     "platforms": [
@@ -24,7 +24,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.universal.todos"
+    },
+    "android": {
+      "package": "com.universal.todos"
     }
   }
 }
