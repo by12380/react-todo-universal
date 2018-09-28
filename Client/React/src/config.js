@@ -1,6 +1,6 @@
-export const AUTH0_DOMAIN = process.env.REACT_APP_AUTH0_DOMAIN || 'react-todo-universal.auth0.com';
-export const AUTH0_CLIENT_ID = process.env.REACT_APP_AUTH0_CLIENT_ID || 'tBLDtlPmAIQTKk9MO1gIbZ5ibLfs85ZL';
-export const AUTH0_API_AUDIENCE = process.env.REACT_APP_AUTH0_API_AUDIENCE || 'https://api.react-todo-universal.com';
+export const AUTH0_DOMAIN = process.env.REACT_APP_AUTH0_DOMAIN;
+export const AUTH0_CLIENT_ID = process.env.REACT_APP_AUTH0_CLIENT_ID;
+export const AUTH0_API_AUDIENCE = process.env.REACT_APP_AUTH0_API_AUDIENCE;
 export const AUTH0_LOGIN_REDIRECT_URL = process.env.REACT_APP_AUTH0_LOGIN_REDIRECT_URL || 'http://localhost:3000/callback';
 export const AUTH0_LOGOUT_REDIRECT_URL = process.env.REACT_APP_AUTH0_LOGOUT_REDIRECT_URL || 'http://localhost:3000/';
 
