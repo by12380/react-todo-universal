@@ -42,7 +42,8 @@ class Todo extends Component {
                                 className="input-title"
                                 type="text"
                                 autoComplete="off"
-                                ref={input => {this.input = input}}/>
+                                ref={input => {this.input = input}}
+                                placeholder="Add a todo..."/>
                         </div>
                     </form>
                     <div className="todo-container">

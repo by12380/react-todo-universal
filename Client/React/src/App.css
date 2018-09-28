@@ -136,9 +136,6 @@
 
 @media only screen and (max-width: 400px) {
   .btn-group-right {
-    position: relative;
-    display: inline-block;
-    transform: none;
-    float: left;
+    display: none;
   }
 }
